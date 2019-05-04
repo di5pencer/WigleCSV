@@ -3,6 +3,11 @@
 
 Searches CSV datafiles exported by the Wigle phone app.
 
+The CSV is to be placed in a folder called data and titled WigleWifi.csv
+
+
+'data/WigleWifi.csv'
+
 Also cleanses data by removing '?' rows from location and datapoints
 with poor location accuracy . 
 
