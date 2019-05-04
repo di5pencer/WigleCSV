@@ -6,21 +6,24 @@ input_file = 'data/WigleWifi.csv'
 
 #loads file, selects header from
 #second row down as per mobile export.
+#limited to 200,000 rows
 data = pd.read_csv(input_file, encoding = "ISO-8859-1", low_memory=False, nrows=200000, header =1)
 
-#drops all rows with a ? in location data
-data=data[data.CurrentLatitude != "?"]
+
 
 #Print tail to confirm load
 print(data.tail())
 
 
 #filters to cleanse data
+#drops all rows with a ? in location data
+data=data[data.CurrentLatitude != "?"]
+#removes all rows with poor accuracy
 data=data[data.AccuracyMeters < 20]
-data=data[data.MAC == '']
 
-#ar_filtered = data[data.AccuracyMeters < 20]
-#ar_filtered2 = (ar_filtered[ar_filtered.MAC == 'c0:3f:0e:7c:d5:b5'])
+#uncomment to filter by MAC
+#data=data[data.MAC == ' Enter Mac to Filter in here']
+
 
 
 
@@ -39,8 +42,6 @@ features = data.apply(
 
 # whole geojson object
 feature_collection = FeatureCollection(features=features)#, properties=properties)
-
-
 
 with open('file.geojson', 'w', encoding='utf-8') as f:
     json.dump(feature_collection, f, ensure_ascii=False)
