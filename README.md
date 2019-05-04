@@ -1,3 +1,12 @@
-# WigleCSV
-Used for searching Wigle Database app export .csv files
-requires your database to be imported into a /data folder with the name of WigleWifi.csv
+# Wigle CSV tools
+#####
+
+Searches CSV datafiles exported by the Wigle phone app.
+
+Also cleanses data by removing '?' rows from location and datapoints
+with poor location accuracy . 
+
+#####geoJSON output
+Outputs a geoJSON file of the queried points. 
+The exported file can be dropped onto here to be viewed
+https://developers.google.com/maps/documentation/javascript/examples/layer-data-dragndrop
