@@ -19,11 +19,6 @@ print(data.tail())
 data=data[data.AccuracyMeters < 20]
 data=data[data.MAC == '']
 
-#ar_filtered = data[data.AccuracyMeters < 20]
-#ar_filtered2 = (ar_filtered[ar_filtered.MAC == 'c0:3f:0e:7c:d5:b5'])
-
-
-
 print(data[['MAC','SSID','CurrentLatitude','CurrentLongitude']])
 
 
